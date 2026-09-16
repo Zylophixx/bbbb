@@ -112,9 +112,10 @@ function App() {
       opacity: 0,
       scrollTrigger: { trigger: portfolioSectionRef.current, start: "top top", end: "top center", scrub: 0 }
     });
+    const desktopParallaxEls = desktopEls.filter((el: Element) => !el.classList.contains('no-parallax-y'));
     gsap.timeline({
       scrollTrigger: { trigger: portfolioSectionRef.current, start: "top bottom", end: "bottom top", scrub: 2 }
-    }).to(desktopEls, { y: 200, ease: "power1.out" });
+    }).to(desktopParallaxEls, { y: 200, ease: "power1.out" });
 
     gsap.to(portfolioSectionRef.current, {
       y: mobile ? -900 : -900,
@@ -210,7 +211,7 @@ function App() {
             width={HERO_MOBILE.width}
             height={HERO_MOBILE.height}
             fit="cover"
-            className="mobile-image hero-image-layer fixed"
+            className="mobile-image hero-image-layer fixed no-parallax-y"
             style={{ inset: 0, width: '100%', height: '100%', zIndex: 20 }}
           />
         </div>
@@ -250,7 +251,7 @@ function App() {
             width={HERO_DESKTOP.width}
             height={HERO_DESKTOP.height}
             fit="cover"
-            className="desktop-image hero-image-layer fixed"
+            className="desktop-image hero-image-layer fixed no-parallax-y"
             style={{ inset: 0, width: '100%', height: '100%', zIndex: 20 }}
           />
         </div>
