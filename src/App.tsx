@@ -143,17 +143,29 @@ function App() {
         </ClickWrapper>
       )}
 
-      {/* Fixed background */}
+      {/* Fixed background — desktop */}
       <ClickWrapper
-        className="fixed inset-0 z-0 bg-interactive"
+        className="fixed inset-0 z-0 bg-interactive hidden md:block"
         scrollTo="#portfolio"
         glowColor="rgba(255,255,255,0.15)"
         noHover
         style={{
           backgroundImage: `url('/pc/bg.webp')`,
-          // Note: no backgroundAttachment: 'fixed' — this element is already position:fixed,
-          // so it's redundant, and background-attachment:fixed is notoriously buggy/glitchy
-          // on iOS Safari (can cause the background to vanish or flicker while scrolling).
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.08)' }} />
+      </ClickWrapper>
+
+      {/* Fixed background — mobile */}
+      <ClickWrapper
+        className="fixed inset-0 z-0 bg-interactive md:hidden"
+        scrollTo="#portfolio"
+        glowColor="rgba(255,255,255,0.15)"
+        noHover
+        style={{
+          backgroundImage: `url('/mobile/mbbg.webp')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
