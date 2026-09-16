@@ -18,10 +18,6 @@ function setMobileVH() {
   }
 }
 
-function getZoomLevel(): number {
-  return window.outerWidth / window.innerWidth;
-}
-
 const isMobile = () => window.innerWidth < 768;
 
 interface HeroImage {
@@ -99,39 +95,6 @@ function App() {
       window.removeEventListener('scroll', setMobileVH);
     };
   }, []);
-
-  // Lock .webp hero images at their original visual size when the browser is zoomed (Ctrl+scroll).
-  // We detect the zoom level and apply an inverse CSS scale so the images don't grow/shrink.
-  useEffect(() => {
-    let currentZoom = getZoomLevel();
-
-    const applyZoomLock = () => {
-      const zoom = getZoomLevel();
-      if (Math.abs(zoom - currentZoom) < 0.01) return;
-      currentZoom = zoom;
-
-      const inverseScale = 1 / zoom;
-      const heroWrappers = document.querySelectorAll<HTMLElement>('.desktop-image, .mobile-image');
-      heroWrappers.forEach((el) => {
-        const img = el.querySelector('img');
-        if (img && img.src.endsWith('.webp')) {
-          img.style.transform = `scale(${inverseScale})`;
-          img.style.transformOrigin = 'center center';
-        }
-      });
-
-      const bgEl = document.querySelector<HTMLElement>('.bg-interactive');
-      if (bgEl && bgEl.style.backgroundImage.includes('.webp')) {
-        bgEl.style.transform = `scale(${inverseScale})`;
-        bgEl.style.transformOrigin = 'center center';
-      }
-    };
-
-    window.addEventListener('resize', applyZoomLock);
-    applyZoomLock();
-
-    return () => window.removeEventListener('resize', applyZoomLock);
-  }, [showSplash]);
 
   useEffect(() => {
     ScrollTrigger.getAll().forEach(t => t.kill());
