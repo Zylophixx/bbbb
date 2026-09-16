@@ -112,10 +112,6 @@ function App() {
       opacity: 0,
       scrollTrigger: { trigger: portfolioSectionRef.current, start: "top top", end: "top center", scrub: 0 }
     });
-    gsap.timeline({
-      scrollTrigger: { trigger: portfolioSectionRef.current, start: "top bottom", end: "bottom top", scrub: 2 }
-    }).to(desktopEls, { y: 200, ease: "power1.out" });
-
     gsap.to(portfolioSectionRef.current, {
       y: mobile ? -900 : -900,
       scrollTrigger: { trigger: portfolioSectionRef.current, start: "top bottom", end: "bottom top", scrub: 2 }
