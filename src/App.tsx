@@ -36,7 +36,7 @@ const mobileImages: HeroImage[] = [
 ];
 
 const desktopImages: HeroImage[] = [
-  { src: '/pc/me.webp',    delay: 2.2, isStatic: true,  noHover: false,},
+  { src: '/pc/me.svg',    delay: 2.2, isStatic: true,  noHover: false,},
   { src: '/pc/me 2.webp',  delay: 2.4, isStatic: true,  noHover: false, },
 ];
 
