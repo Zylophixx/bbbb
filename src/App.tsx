@@ -4,7 +4,6 @@ import { ClickWrapper } from "./components/ClickWrapper";
 import { Mail, Instagram, ChevronDown } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SplashScreen } from './components/SplashScreen';
 import { HeroDesign } from './components/HeroDesign';
 import heroDesktopHtml from './hero/hero-desktop.html?raw';
 import heroMobileHtml from './hero/hero-mobile.html?raw';
@@ -78,7 +77,6 @@ const skills = [
 ];
 
 function App() {
-  const [showSplash, setShowSplash] = useState(true);
   const [showContact, setShowContact] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const portfolioSectionRef = useRef<HTMLDivElement>(null);
@@ -134,17 +132,7 @@ function App() {
 
   return (
     <div className="relative">
-      {showSplash && (
-        <ClickWrapper
-          className="splash-interactive"
-          onClick={() => setShowSplash(false)}
-          glowColor="rgba(201,168,76,0.4)"
-        >
-          <SplashScreen onComplete={() => setShowSplash(false)} />
-        </ClickWrapper>
-      )}
-
-      {/* Fixed background — desktop */}
+{/* Fixed background — desktop */}
       <ClickWrapper
         className="fixed inset-0 z-0 bg-interactive hidden md:block"
         scrollTo="#portfolio"
