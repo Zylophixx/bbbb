@@ -78,8 +78,13 @@ const skills = [
 
 function App() {
   const [showContact, setShowContact] = useState(false);
+  const [ready, setReady] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const portfolioSectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    requestAnimationFrame(() => setReady(true));
+  }, []);
 
   useEffect(() => {
     setMobileVH();
@@ -131,7 +136,7 @@ function App() {
   const vh = (n: number) => window.innerWidth < 768 ? `calc(var(--mobile-vh) * ${n})` : `${n}vh`;
 
   return (
-    <div className="relative">
+    <div className="relative" style={{ opacity: ready ? 1 : 0, transition: 'opacity 0.6s ease-out' }}>
 {/* Fixed background — desktop */}
       <ClickWrapper
         className="fixed inset-0 z-0 bg-interactive hidden md:block"

@@ -43,7 +43,7 @@ body {
   -webkit-overflow-scrolling: touch;
   height: auto;
   font-family: 'IBM Plex Sans', sans-serif;
-  background: var(--ink);
+  background: #f5f2ec;
 }
 
 ::selection {
