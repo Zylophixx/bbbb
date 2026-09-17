@@ -83,7 +83,41 @@ function App() {
   const portfolioSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    requestAnimationFrame(() => setReady(true));
+    const heroImages = isMobile()
+      ? ['/mobile/mbbg.webp', '/mobile/mbme.webp']
+      : ['/pc/bg.webp', '/pc/me.webp', '/pc/me 2.webp'];
+
+    const loaded = new Set<string>();
+    const checkDone = () => {
+      if (loaded.size === heroImages.length) {
+        requestAnimationFrame(() => {
+          setReady(true);
+          const loader = document.getElementById('initial-loader');
+          if (loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => loader.remove(), 600);
+          }
+        });
+      }
+    };
+
+    heroImages.forEach((src) => {
+      const img = new Image();
+      img.onload = () => { loaded.add(src); checkDone(); };
+      img.onerror = () => { loaded.add(src); checkDone(); };
+      img.src = src;
+    });
+
+    const timeout = setTimeout(() => {
+      setReady(true);
+      const loader = document.getElementById('initial-loader');
+      if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => loader.remove(), 600);
+      }
+    }, 3000);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   useEffect(() => {
