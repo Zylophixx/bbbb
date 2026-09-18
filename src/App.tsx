@@ -31,7 +31,7 @@ interface HeroImage {
 }
 
 const mobileImages: HeroImage[] = [
-  { src: '/mobile/mbme.webp',      delay: 2.2, isStatic: false, zIndex: 11, },
+  { src: '/mobile/mbme.webp',      isStatic: true, zIndex: 11, },
   { src: '/mobile/mbme.webp',      isStatic: true,              zIndex: 10, scrollTo: '#portfolio' },
 ];
 
