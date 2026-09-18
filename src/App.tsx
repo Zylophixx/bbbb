@@ -228,7 +228,7 @@ function App() {
                     })
               }}
             >
-              <img src={img.src} alt="" decoding="async" className="w-full h-full object-cover" />
+              <img src={img.src} alt="" decoding="async" className="w-full h-full object-contain" />
             </ClickWrapper>
           ))}
 
@@ -268,7 +268,7 @@ function App() {
                     })
               }}
             >
-              <img src={img.src} alt="" decoding="async" className={img.isSmall ? 'w-full h-auto' : 'w-full h-full object-cover'} />
+              <img src={img.src} alt="" decoding="async" className={img.isSmall ? 'w-full h-auto' : 'w-full h-full object-contain'} />
             </ClickWrapper>
           ))}
 
