@@ -237,7 +237,7 @@ function App() {
             html={heroMobileHtml}
             width={HERO_MOBILE.width}
             height={HERO_MOBILE.height}
-            fit="cover"
+            fit="contain"
             className="mobile-image hero-image-layer fixed no-parallax-y"
             style={{ inset: 0, width: '100%', height: '100%', zIndex: 20 }}
           />
@@ -277,7 +277,7 @@ function App() {
             html={heroDesktopHtml}
             width={HERO_DESKTOP.width}
             height={HERO_DESKTOP.height}
-            fit="cover"
+            fit="contain"
             className="desktop-image hero-image-layer fixed no-parallax-y"
             style={{ inset: 0, width: '100%', height: '100%', zIndex: 20 }}
           />
