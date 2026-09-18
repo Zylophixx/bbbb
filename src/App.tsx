@@ -180,7 +180,7 @@ function App() {
         style={{
           backgroundImage: `url('/pc/bg.webp')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'left center',
         }}
       >
         <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.08)' }} />
